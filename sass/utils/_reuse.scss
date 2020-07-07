@@ -1,0 +1,51 @@
+.container {
+  @media screen and (max-width: 767px) {
+    max-width: 480px;
+  }
+  @media screen and (max-width: 1199px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    max-width: 768px;
+  }
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+  @media screen and (min-width: 1200px) {
+    padding-top: 94px;
+    padding-bottom: 94px;
+  }
+}
+
+.btn {
+  @extend %btn;
+
+  &:hover,
+  :focus {
+    background-color: $whiteColor;
+    color: $hoverColor;
+  }
+}
+.section-title {
+  @media screen and (max-width: 1199px) {
+    font-size: 28px;
+    line-height: 1.17;
+  }
+
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.16;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: $blackColor;
+  margin-bottom: 50px;
+}
+.social-icon {
+  @extend %flexAJcenter;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}

@@ -1,0 +1,14 @@
+@import "utils/mixin";
+
+.test {
+  @include font(12, 12, 12);
+}
+
+.call-to-action {
+  @include font(12, 12, 1);
+  margin-bottom: 20px;
+  display: flex;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}

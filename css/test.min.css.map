@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,KAAK,AAAC,CCGJ,SAAS,CDFK,EAAE,CCGhB,WAAW,CDHO,CAAE,CCIpB,WAAW,CDJW,EAAE,CACzB,AAED,AAAA,eAAe,AAAC,CCDd,SAAS,CDEK,EAAE,CCDhB,WAAW,CDCO,CAAE,CCApB,WAAW,CDAW,CAAC,CACvB,aAAa,CAAE,IAAI,CACnB,OAAO,CAAE,IAAI,CACb,WAAW,CAAE,GAAG,CAChB,cAAc,CAAE,MAAM,CACtB,cAAc,CAAE,SAAS,CAC1B",
+    "sources": [
+        "../sass/test.scss",
+        "../sass/utils/_mixin.scss"
+    ],
+    "names": [],
+    "file": "test.min.css"
+}

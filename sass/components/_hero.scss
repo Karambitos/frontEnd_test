@@ -1,0 +1,82 @@
+.hero {
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  @media screen and (max-width: 1199px) {
+    padding-top: 118px;
+    padding-bottom: 118px;
+  }
+  @media (max-width: 767px) {
+    background-image: linear-gradient(
+        to right,
+        rgba(47, 48, 58, 0.8),
+        rgba(47, 48, 58, 0.8)
+      ),
+      url(../img/hero/heromob.jpg);
+    @media (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          rgba(47, 48, 58, 0.8),
+          rgba(47, 48, 58, 0.8)
+        ),
+        url(../img/hero/heromob@2x.jpg);
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1199px) {
+    background-image: linear-gradient(
+        to right,
+        rgba(47, 48, 58, 0.8),
+        rgba(47, 48, 58, 0.8)
+      ),
+      url(../img/hero/herotab.jpg);
+    @media (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          rgba(47, 48, 58, 0.8),
+          rgba(47, 48, 58, 0.8)
+        ),
+        url(../img/hero/herotab2x.jpg);
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    padding-top: 200px;
+    padding-bottom: 200px;
+    background-image: linear-gradient(
+        to right,
+        rgba(47, 48, 58, 0.8),
+        rgba(47, 48, 58, 0.8)
+      ),
+      url(../img/hero/hero.jpg);
+    @media (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          rgba(47, 48, 58, 0.8),
+          rgba(47, 48, 58, 0.8)
+        ),
+        url(../img/hero/hero-des2x.jpg);
+    }
+  }
+
+  &-title {
+    color: $whiteColor;
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 1.36;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: pre-line;
+    @media screen and (max-width: 468px) {
+      padding: 0 15px;
+    }
+    @media screen and (max-width: 1199px) {
+      font-size: 26px;
+      line-height: 1.62;
+    }
+  }
+  &-button {
+    margin-top: 30px;
+  }
+}

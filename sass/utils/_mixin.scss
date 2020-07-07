@@ -1,0 +1,9 @@
+@mixin rhythm($sizeValue: 12, $heightValue: 20) {
+  @include font-size($sizeValue);
+  @include line-height($heightValue);
+}
+@mixin font($fs, $lh: 1, $fw: 400) {
+  font-size: $fs;
+  line-height: $lh/$fs;
+  font-weight: $fw;
+}
