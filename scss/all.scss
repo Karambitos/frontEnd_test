@@ -1,4 +1,21 @@
 
+@import "./utils/var.scss";
+@import "./base/basic-reset.scss";
+@import "./base/placeholders.scss";
+@import "./utils/visually-hiden.scss";
+@import "./components/container.scss";
+@import "./components/button.scss";
+@import "./components/menu.scss";
+@import "./components/header.scss";
+@import "./components/about-us.scss";
+@import "./components/price.scss";
+@import "./components/team.scss";
+@import "./components/socials.scss";
+@import "./components/card.scss";
+@import "./components/features.scss";
+@import "./footer.scss";
+
+
 $prime-orange-color: #ff6c00;
 $prime-black-color: #303030;
 $prime-white-color: #ffffff;
@@ -19,16 +36,18 @@ img {
   display: block;
 }
 
+// .side-bar{
+//   width: 155px;
+//   height: 680px;
+//   left: 0px;
+//   top: 0px;
+//   background: #555555;
+// }
+
 .slider{
   display: flex;
 
-  .side-bar{
-    width: 155px;
-    height: 680px;
-    left: 0px;
-    top: 0px;
-    background: #555555;
-  }
+  
 
   .swiper-container {
     height: 100%;
@@ -86,13 +105,8 @@ img {
         cursor: pointer;
       }
     }
+  } 
 }
-}
-
-
-
-
-
 
 section{
   margin: auto;

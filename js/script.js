@@ -1,5 +1,16 @@
 'use strict';
 
+(() => {
+  const menuBtnRef = document.querySelector('[data-menu-button]');
+  const mobileMenuRef = document.querySelector('[data-menu]');
+
+  menuBtnRef.addEventListener('click', () => {
+    menuBtnRef.classList.toggle('is-open');
+
+    mobileMenuRef.classList.toggle('is-open');
+  });
+})();
+
 var swiper = new Swiper('.swiper-container', {
     slidesPerView: 1,
     spaceBetween: 0,
