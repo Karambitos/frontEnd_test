@@ -80,6 +80,10 @@ img {
           justify-content: space-between;
 }
 
+.slider .swiper-container .swiper-button-pre, .slider .swiper-container .swiper-button-nex {
+  cursor: pointer;
+}
+
 section {
   margin: auto;
   max-width: 1280px;

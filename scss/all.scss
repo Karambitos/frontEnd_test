@@ -80,6 +80,11 @@ img {
       max-width: 146px;
       width: 100%;
       justify-content: space-between;
+
+      &-pre,
+      &-nex{
+        cursor: pointer;
+      }
     }
 }
 }
