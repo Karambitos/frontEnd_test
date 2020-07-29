@@ -149,17 +149,31 @@
   const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
   const isLoginValid = function(login) {
-    // твой код
+    if (!((login.length >= 4) && (login.length <= 16))) {
+       console.log('Ошибка! Логин должен быть от 4 до 16 символов');
+      return false;
+    }
+    return true;
   };
 
   const isLoginUnique = function(allLogins, login) {
-    // твой код
+    if (allLogins.includes(login)) {
+      console.log('Такой логин уже используется!');
+      return false;
+    }
+    return true;
   };
 
   const addLogin = function(allLogins, login) {
     // твой код
-  };
-
+    let f1 = isLoginValid(login);
+    let f2 = isLoginUnique(allLogins, login);
+    if (f1 && f2){
+      allLogins.push(login);
+      return allLogins;
+    }
+      return allLogins;
+  }
   /*
    * Вызовы функции для проверки работоспособности твоей реализации.
    */
