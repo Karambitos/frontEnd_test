@@ -1,23 +1,164 @@
 'use strict';
+
+
+
 console.warn('---------модуль 6------------')
 
-{
-  console.warn('Задание 1')
-  const getUserNames = users => {
-    // твой код
-  };
+import users from './users.js';
 
-  console.log(getUserNames(users));
-// [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
-}
+    // console.warn('Задание 1');
+    // const getUserNames = users => {
+    //   // твой код
+    //   return users.map((user) => {return user.name})
+    // };
+    // console.log(getUserNames(users));
+    // [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
 
-{
-  console.warn('Задание 2')
-}
+    // console.warn('Задание 2')
+    // // Получить массив объектов пользователей по цвету глаз (поле eyeColor).ё
+    // const getUsersWithEyeColor = (users, color) => {
+    //   // твой код
+    //    return users.filter((user) => {
+    //     return user.eyeColor === color;
+    //   });
+    // };
+    //
+    // console.log(getUsersWithEyeColor(users, 'blue')); // [объект Moore Hensley, объект Sharlene Bush, объект Carey Barr]
 
-{
-  console.warn('Задание 3')
-}
+    // console.warn('Задание 3');
+    // // Получить массив имен пользователей по полу (поле gender).
+    // const getUsersWithGender = (users, gender) => {
+    //   // твой код
+    //
+    //     let usersFilter = users.filter((user) => {
+    //       return user.gender === gender;
+    //     });
+    //     return usersFilter.map((user) => {return user.name})
+    // };
+    // console.log(getUsersWithGender(users, 'male')); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
+
+    // console.warn('Задание 4');
+    //
+    // // Получить массив только неактивных пользователей (поле isActive).
+    // const getInactiveUsers = users => {
+    //   // твой код
+    //      return users.filter((user) => {
+    //       return !user.isActive;
+    //     });
+    // };
+    //
+    // console.log(getInactiveUsers(users)); // [объект Moore Hensley, объект Ross Vazquez, объект Blackburn Dotson]
+
+    // console.warn('Задание 5');
+    //   // Получить пользоваля (не массив) по email (поле email, он уникальный).
+    //   const getUserWithEmail = (users, email) => {
+    //     // твой код
+    //     return users.find((user) => {
+    //             return user.email === email;
+    //           });
+    //           // return usersFilter.map((user) => {return user.name})
+    //   };
+    //   console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {объект пользователя Sheree Anthony}
+    //   console.log(getUserWithEmail(users, 'elmahead@omatom.com')); // {объект пользователя Elma Head}
+
+    // console.warn('Задание 6');
+    //   // Получить массив пользователей попадающих в возрастную категорию от min до max лет (поле age).
+    //
+    //   const getUsersWithAge = (users, min, max) => {
+    //     // твой код
+    //     return users.filter((user) => {
+    //       return user.age > min && user.age < max;
+    //     });
+    //   };
+    //
+    //   console.log(getUsersWithAge(users, 20, 30)); // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
+    //   console.log(getUsersWithAge(users, 30, 40));
+    //   // [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
+
+    // console.warn('Задание 7');
+    //   // Получить общую сумму баланса (поле balance) всех пользователей.
+    //   const calculateTotalBalance = users => {
+    //     // твой код
+    //     // let total = users.reduce(function (acc, user){
+    //     //   return acc + user.balance;
+    //     // }, 0)
+    //     // return total
+    //
+    //     //твой код
+    //     let total = 0;
+    //     users.forEach((user) => {
+    //       total += user.balance;
+    //     });
+    //     return total;
+    //   };
+    //   console.log(calculateTotalBalance(users)); // 20916
+
+    // console.warn('Задание 8');
+    // // Массив имен всех пользователей у которых есть друг с указанным именем.
+    //   const getUsersWithFriend = (users, friendName) => {
+    //       // твой код
+    //         let arr = [];
+    //       users.forEach((user) => {
+    //           user.friends.find(function (elem) {
+    //               if (elem === friendName){
+    //                   arr.push(user.name);
+    //               };
+    //           });
+    //       });
+    //       return arr;
+    // };
+    //
+    // console.log(getUsersWithFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
+    // console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
+
+    // console.warn('Задание 9');
+    // // Массив имен (поле name) людей, отсортированных в зависимости от количества их друзей (поле friends)
+    // const getNamesSortedByFriendsCount = users => {
+    //     // твой код
+    //   let sort = [...users].sort(function(prev, next){
+    //     return prev.friends.length - next.friends.length;
+    //   });
+    //   return sort.map((user) => {return user.name})
+    // };
+    // console.log(getNamesSortedByFriendsCount(users));
+    // // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
+
+    // console.warn('Задание 10');
+    // // Получить массив всех умений всех пользователей (поле skills),
+    // // при этом не должно быть повторяющихся умений и они должны
+    // // быть отсортированы в алфавитном порядке.
+    //   const getSortedUniqueSkills = users => {
+    //
+    // //  Вариант 1
+    // //     return users.reduce((acc, user) => {
+    // //       user.skills.forEach((skill) => {
+    // //         if (!acc.includes(skill)) {
+    // //           acc.push(skill);
+    // //         }
+    // //       });
+    // //       acc.sort();
+    // //       return acc;
+    // //     }, []);
+    //
+    // //  Вариант 2
+    // //   const allSkills = users.reduce(function (userSkills, user){
+    // //     userSkills.push(...user.skills)
+    // //     return userSkills;
+    // //   }, [])
+    // //   const filterSkills = allSkills.filter((elem, index, arr) => arr.indexOf(elem)==index);
+    // //   const sortSkills = filterSkills.sort();
+    // //   return sortSkills;
+    //
+    // //  Вариант 3
+    //   const allSkills = users.reduce(function (userSkills, user){
+    //     userSkills.push(...user.skills)
+    //     return userSkills;
+    //   }, []).filter((elem, index, arr) => arr.indexOf(elem)==index).sort();
+    //     return allSkills;
+    // };
+    // console.log(getSortedUniqueSkills(users));
+    // // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
+
 console.warn('---------модуль 5------------')
 
 // {
@@ -485,32 +626,32 @@ console.warn('---------модуль 3------------')
 // /*
 //  * Вызовы функции для проверки работоспособности твоей реализации.
 //  */
-// console.log(
-//   findBestEmployee({
-//     ann: 29,
-//     david: 35,
-//     helen: 1,
-//     lorence: 99,
-//   }),
-// ); // lorence
+//   console.log(
+//     findBestEmployee({
+//       ann: 29,
+//       david: 35,
+//       helen: 1,
+//       lorence: 99,
+//     }),
+//   ); // lorence
 //
-// console.log(
-//   findBestEmployee({
-//     poly: 12,
-//     mango: 17,
-//     ajax: 4,
-//   }),
-// ); // mango
+//   console.log(
+//     findBestEmployee({
+//       poly: 12,
+//       mango: 17,
+//       ajax: 4,
+//     }),
+//   ); // mango
 //
-// console.log(
-//   findBestEmployee({
-//     lux: 147,
-//     david: 21,
-//     kiwi: 19,
-//     chelsy: 38,
-//   }),
-// ); // lux
-// }w
+//   console.log(
+//     findBestEmployee({
+//       lux: 147,
+//       david: 21,
+//       kiwi: 19,
+//       chelsy: 38,
+//     }),
+//   ); // Lux
+// }
 
 // {
 //     console.warn('Задание 4')
