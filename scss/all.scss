@@ -1,221 +1,37 @@
+@import "./components/team";
 
-@import "./utils/var.scss";
-@import "./base/basic-reset.scss";
-@import "./base/placeholders.scss";
-@import "./utils/visually-hiden.scss";
-@import "./components/container.scss";
-@import "./components/button.scss";
-@import "./components/menu.scss";
-@import "./components/header.scss";
-@import "./components/about-us.scss";
-@import "./components/price.scss";
-@import "./components/team.scss";
-@import "./components/socials.scss";
-@import "./components/card.scss";
-@import "./components/features.scss";
-@import "./footer.scss";
-
-
-$prime-orange-color: #ff6c00;
-$prime-black-color: #303030;
-$prime-white-color: #ffffff;
-$light-grey-color: #9da4bd;
-$primary-text-color: #555555;
-$background-color: #f7f7f7;
-$footer-background: #191c26;
-
-*{
+* {
   box-sizing: border-box;
 }
 
-body{
-  margin: 0;
+body {
+  max-width: 420px;
+  margin: 50px auto;
 }
 
 img {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-// .side-bar{
-//   width: 155px;
-//   height: 680px;
-//   left: 0px;
-//   top: 0px;
-//   background: #555555;
-// }
-
-.slider{
-  display: flex;
-
-  
-
-  .swiper-container {
-    height: 100%;
-    max-width: 1125px;
-    width: 100%;
-
-    .swiper-pagination{
-      
-      position: absolute;
-      top: 50%;
-      right: 55px;
-      bottom: auto;
-      margin-left: auto;
-      max-width: 18px;
-
-      display: flex;
-      flex-direction: column;
-
-      span.swiper-pagination-bullet{
-        width: 8px;
-        height: 2px;
-
-        margin-top: 0;
-        margin-right: 0;
-        margin-left: auto;
-        margin-bottom: 12px;
-
-        border-radius: 0;
-        background: #9DA4BD;
-        opacity: 1;
-
-        &-active{
-          width: 18px;
-          background: white;
-        }
-      }
-      
-    }
-    .swiper-button{
-      position: absolute;
-      
-      z-index: 1;
-      right: 55px;
-      bottom: 40px;
-
-      color: white;
-      display: flex;
-
-      max-width: 146px;
-      width: 100%;
-      justify-content: space-between;
-
-      &-pre,
-      &-nex{
-        cursor: pointer;
-      }
-    }
-  } 
+.image-style {
+  padding: 10px;
+  max-width: 200px;
 }
 
-section{
-  margin: auto;
-  max-width: 1280px;
-  width: 100%;
+.validation-input {
+  margin: 40px 0;
 }
 
-.features {
-  &-info {
-    font-weight: 600;
-    font-size: 11px;
-    line-height: 1.36;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-
-    &:before{
-      content: '';
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 20px;
-      width: 60px;
-      height: 1px;
-      background-color: red;
-      margin-top: -1px;
-    }
-  }
-  &-title {
-    font-weight: 700;
-    font-size: 42px;
-    line-height: 49px;
-    letter-spacing: 0.05em;
-    margin-bottom: 20px;
-  }
-  &-text {
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 1.67;
-    letter-spacing: 0.02em;
-    color: $primary-text-color;
-    margin-bottom: 44px;
-  }
-  &-list {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 35px;
-    padding-left: 0;
-  }
-  &-score {
-    font-weight: bold;
-    font-size: 42px;
-    line-height: 1.35;
-    letter-spacing: 0.05em;
-    color: $prime-black-color;
-    display: block;
-    text-align: center;
-    &-text {
-      font-weight: 600;
-      font-size: 11px;
-      line-height: 15px;
-      color: $prime-black-color;
-      white-space: pre-line;
-      display: block;
-      text-align: center;
-    }
-    &-sub {
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 1.3;
-      color: $prime-orange-color;
-      vertical-align: super;
-    }
-  }
-  &-item {
-    background-color: $background-color;
-    width: calc((100% - 30px * 1) / 2);
-    height: 133px;
-    padding: 20px;
-    margin-bottom: 30px;
-    display: inline-block;
-
-    &:nth-child(odd) {
-      margin-right: 30px;
-      margin-top: -35px;
-    }
-
-  }
+#validation-input {
+  border: 3px solid #bdbdbd;
 }
 
-.container {
-  max-width: 480px;
-  padding-top: 84px;
-  padding-bottom: 84px;
-  padding-left: 31px;
-  padding-right: 31px;
-  margin: 0 auto;
+#validation-input.valid {
+  border-color: #4caf50;
+}
 
-  @media screen and (min-width: 768px) {
-    max-width: 768px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    padding-left: 39px;
-    padding-right: 39px;
-  }
-  @media screen and (min-width: 1200px) {
-    max-width: 1200px;
-    padding-top: 130px;
-    padding-bottom: 130px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+#validation-input.invalid {
+  border-color: #f44336;
 }

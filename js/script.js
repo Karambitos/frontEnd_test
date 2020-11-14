@@ -1,163 +1,311 @@
 'use strict';
 
+console.warn('---------модуль 7------------')
+
+console.warn('Задание 1');
+const categoriesRef = document.getElementById('categories');
+console.log(`В списке ${categoriesRef.children.length} категории.`);
+const categoriesItemsRef = categoriesRef.querySelectorAll('li.item');
+categoriesItemsRef.forEach(categoriesItem => {
+    console.log(`Категория: ${categoriesItem.firstElementChild.textContent}`);
+    console.log(`Количество элементов: ${categoriesItem.lastElementChild.children.length}`);
+});
+
+console.warn('Задание 2');
+const ingredientsList = document.getElementById('ingredients');
+const ingredients = [
+    'Картошка',
+    'Грибы',
+    'Чеснок',
+    'Помидоры',
+    'Зелень',
+    'Приправы',
+]
+ingredients.map(ingredient => {
+    const ingredientsItem = document.createElement('li');
+    ingredientsItem.textContent = ingredient;
+    ingredientsList.append(ingredientsItem);
+    return ingredientsList;
+});
+
+console.warn('Задание 3');
+import img from './images.js';
+const galleryList = document.getElementById('gallery');
+const galleryItems = img.map(img => {
+    const ingredientsItem = document.createElement('li');
+    ingredientsItem.classList.add('image-style')
+    const ingredientsItemImg = document.createElement('img');
+    ingredientsItemImg.src = img.url;
+    ingredientsItemImg.alt = img.alt;
+    ingredientsItem.append(ingredientsItemImg)
+    galleryList.append(ingredientsItem);
+    return galleryList;
+});
+
+console.warn('Задание 4');
+// Счетчик состоит из спана и кнопок, которые должны увеличивать и уменьшать значение счетчика на 1.
+// Создай переменную counterValue в которой будет хранится текущее значение счетчика.
+// Создай функции increment и decrement для увеличения и уменьшения значения счетчика
+// Добавь слушатели кликов на кнопки, вызовы функций и обновление интерфейса
+const velueRef = document.getElementById('value');
+const decrementBtn = document.querySelector('button[data-action="decrement"]');
+const incrementBtn = document.querySelector('button[data-action="increment"]');
+let counterValue = Number(velueRef.textContent);
+
+decrementBtn.addEventListener('click', decrement);
+incrementBtn.addEventListener('click', increment);
+
+function decrement() {
+    counterValue -= 1;
+    velueRef.textContent = counterValue;
+};
+
+function increment() {
+    counterValue += 1;
+    velueRef.textContent = counterValue;
+};
+console.warn('Задание 5');
+// Напиши скрипт который, при наборе текста в инпуте input#name-input 
+// (событие input), подставляет его текущее значение в span#name - output.
+// Если инпут пустой, в спане должна отображаться строка 'незнакомец'.
+
+const inputName = document.querySelector('input#name-input');
+let greetingName = document.querySelector('#name-output');
+
+inputName.addEventListener('input', () => {
+    if (event.target.value) {
+        greetingName.textContent = event.target.value;
+    } else {
+        greetingName.textContent = 'незнакомец';
+    }
+});
+
+console.warn('Задание 6');
+// Напиши скрипт, который бы при потере фокуса на инпуте, проверял его содержимое на правильное количество символов.
+// Сколько символов должно быть в инпуте, указывается в его атрибуте data - length.
+// Если введено подходящее количество, то border инпута становится зеленым, если неправильное - красным.
+const inputLenghtValid = document.querySelector('input#validation-input');
+inputLenghtValid.addEventListener('blur', () => {
+    const target = event.target;
+    if (Number(target.dataset.length) === (target.value.length)) {
+        target.classList.add('valid');
+        target.classList.remove('invalid');
+    } else {
+        target.classList.add('invalid');
+        target.classList.remove('valid');
+    }
+});
+
+console.warn('Задание 7');
+// Напиши скрипт, который реагирует на изменение значения 
+// input#font - size - control(событие input) и изменяет инлайн - стиль
+// span#text обновляя свойство font - size.В результате при перетаскивании
+// ползунка будет меняться размер текста.
+
+/*
+ *   jQuery
+ */
+$("#font-size-control").on("input", function () {
+    $('#text').css("font-size", $(this).val() + "px");
+});
+
+/*
+ *   JS
+ */
+// const inputRange = document.querySelector('input#font-size-control');
+// const textRef = document.querySelector('#text');
+// inputRange.addEventListener('input', () => {
+//     let target = event.target.value;
+//     textRef.style.fontSize = target + "px";
+// });
+
+/*
+ *   JS задротство
+ */
+// textRef.style.fontSize = '16px';
+// function fontCalc(bool) {
+//     if (bool) {
+//         const newFont = (parseInt(textRef.style.fontSize) + 1) + 'px'
+//         textRef.style.fontSize = newFont;
+//     } else {
+//         const newFont = (parseInt(textRef.style.fontSize) - 1) + 'px'
+//         textRef.style.fontSize = newFont;
+//     }
+// }
+// let defaultInputValue = inputRange.value;
+// inputRange.addEventListener('input', () => {
+//     let target = event.target.value;
+//     if (defaultInputValue < target) {
+//         defaultInputValue = target;
+//         console.log('defaultInputValue', defaultInputValue);
+//         console.log('target', target);
+//         fontCalc(true)
+//     } else {
+//         console.log('defaultInputValue', defaultInputValue);
+//         console.log('target', target);
+//         fontCalc(false)
+//     }
+// });
+
+console.warn('Задание 7');
+
+
 
 
 console.warn('---------модуль 6------------')
+// import users from './users.js';
+// console.warn('Задание 1');
+// const getUserNames = users => {
+//   // твой код
+//   return users.map((user) => {return user.name})
+// };
+// console.log(getUserNames(users));
+// [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
 
-import users from './users.js';
+// console.warn('Задание 2')
+// // Получить массив объектов пользователей по цвету глаз (поле eyeColor).ё
+// const getUsersWithEyeColor = (users, color) => {
+//   // твой код
+//    return users.filter((user) => {
+//     return user.eyeColor === color;
+//   });
+// };
+//
+// console.log(getUsersWithEyeColor(users, 'blue')); // [объект Moore Hensley, объект Sharlene Bush, объект Carey Barr]
 
-    // console.warn('Задание 1');
-    // const getUserNames = users => {
-    //   // твой код
-    //   return users.map((user) => {return user.name})
-    // };
-    // console.log(getUserNames(users));
-    // [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
+// console.warn('Задание 3');
+// // Получить массив имен пользователей по полу (поле gender).
+// const getUsersWithGender = (users, gender) => {
+//   // твой код
+//
+//     let usersFilter = users.filter((user) => {
+//       return user.gender === gender;
+//     });
+//     return usersFilter.map((user) => {return user.name})
+// };
+// console.log(getUsersWithGender(users, 'male')); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
 
-    // console.warn('Задание 2')
-    // // Получить массив объектов пользователей по цвету глаз (поле eyeColor).ё
-    // const getUsersWithEyeColor = (users, color) => {
-    //   // твой код
-    //    return users.filter((user) => {
-    //     return user.eyeColor === color;
-    //   });
-    // };
-    //
-    // console.log(getUsersWithEyeColor(users, 'blue')); // [объект Moore Hensley, объект Sharlene Bush, объект Carey Barr]
+// console.warn('Задание 4');
+//
+// // Получить массив только неактивных пользователей (поле isActive).
+// const getInactiveUsers = users => {
+//   // твой код
+//      return users.filter((user) => {
+//       return !user.isActive;
+//     });
+// };
+//
+// console.log(getInactiveUsers(users)); // [объект Moore Hensley, объект Ross Vazquez, объект Blackburn Dotson]
 
-    // console.warn('Задание 3');
-    // // Получить массив имен пользователей по полу (поле gender).
-    // const getUsersWithGender = (users, gender) => {
-    //   // твой код
-    //
-    //     let usersFilter = users.filter((user) => {
-    //       return user.gender === gender;
-    //     });
-    //     return usersFilter.map((user) => {return user.name})
-    // };
-    // console.log(getUsersWithGender(users, 'male')); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
+// console.warn('Задание 5');
+//   // Получить пользоваля (не массив) по email (поле email, он уникальный).
+//   const getUserWithEmail = (users, email) => {
+//     // твой код
+//     return users.find((user) => {
+//             return user.email === email;
+//           });
+//           // return usersFilter.map((user) => {return user.name})
+//   };
+//   console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {объект пользователя Sheree Anthony}
+//   console.log(getUserWithEmail(users, 'elmahead@omatom.com')); // {объект пользователя Elma Head}
 
-    // console.warn('Задание 4');
-    //
-    // // Получить массив только неактивных пользователей (поле isActive).
-    // const getInactiveUsers = users => {
-    //   // твой код
-    //      return users.filter((user) => {
-    //       return !user.isActive;
-    //     });
-    // };
-    //
-    // console.log(getInactiveUsers(users)); // [объект Moore Hensley, объект Ross Vazquez, объект Blackburn Dotson]
+// console.warn('Задание 6');
+//   // Получить массив пользователей попадающих в возрастную категорию от min до max лет (поле age).
+//
+//   const getUsersWithAge = (users, min, max) => {
+//     // твой код
+//     return users.filter((user) => {
+//       return user.age > min && user.age < max;
+//     });
+//   };
+//
+//   console.log(getUsersWithAge(users, 20, 30)); // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
+//   console.log(getUsersWithAge(users, 30, 40));
+//   // [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
 
-    // console.warn('Задание 5');
-    //   // Получить пользоваля (не массив) по email (поле email, он уникальный).
-    //   const getUserWithEmail = (users, email) => {
-    //     // твой код
-    //     return users.find((user) => {
-    //             return user.email === email;
-    //           });
-    //           // return usersFilter.map((user) => {return user.name})
-    //   };
-    //   console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {объект пользователя Sheree Anthony}
-    //   console.log(getUserWithEmail(users, 'elmahead@omatom.com')); // {объект пользователя Elma Head}
+// console.warn('Задание 7');
+//   // Получить общую сумму баланса (поле balance) всех пользователей.
+//   const calculateTotalBalance = users => {
+//     // твой код
+//     // let total = users.reduce(function (acc, user){
+//     //   return acc + user.balance;
+//     // }, 0)
+//     // return total
+//
+//     //твой код
+//     let total = 0;
+//     users.forEach((user) => {
+//       total += user.balance;
+//     });
+//     return total;
+//   };
+//   console.log(calculateTotalBalance(users)); // 20916
 
-    // console.warn('Задание 6');
-    //   // Получить массив пользователей попадающих в возрастную категорию от min до max лет (поле age).
-    //
-    //   const getUsersWithAge = (users, min, max) => {
-    //     // твой код
-    //     return users.filter((user) => {
-    //       return user.age > min && user.age < max;
-    //     });
-    //   };
-    //
-    //   console.log(getUsersWithAge(users, 20, 30)); // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
-    //   console.log(getUsersWithAge(users, 30, 40));
-    //   // [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
+// console.warn('Задание 8');
+// // Массив имен всех пользователей у которых есть друг с указанным именем.
+//   const getUsersWithFriend = (users, friendName) => {
+//       // твой код
+//         let arr = [];
+//       users.forEach((user) => {
+//           user.friends.find(function (elem) {
+//               if (elem === friendName){
+//                   arr.push(user.name);
+//               };
+//           });
+//       });
+//       return arr;
+// };
+//
+// console.log(getUsersWithFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
+// console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
 
-    // console.warn('Задание 7');
-    //   // Получить общую сумму баланса (поле balance) всех пользователей.
-    //   const calculateTotalBalance = users => {
-    //     // твой код
-    //     // let total = users.reduce(function (acc, user){
-    //     //   return acc + user.balance;
-    //     // }, 0)
-    //     // return total
-    //
-    //     //твой код
-    //     let total = 0;
-    //     users.forEach((user) => {
-    //       total += user.balance;
-    //     });
-    //     return total;
-    //   };
-    //   console.log(calculateTotalBalance(users)); // 20916
+// console.warn('Задание 9');
+// // Массив имен (поле name) людей, отсортированных в зависимости от количества их друзей (поле friends)
+// const getNamesSortedByFriendsCount = users => {
+//     // твой код
+//   let sort = [...users].sort(function(prev, next){
+//     return prev.friends.length - next.friends.length;
+//   });
+//   return sort.map((user) => {return user.name})
+// };
+// console.log(getNamesSortedByFriendsCount(users));
+// // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
 
-    // console.warn('Задание 8');
-    // // Массив имен всех пользователей у которых есть друг с указанным именем.
-    //   const getUsersWithFriend = (users, friendName) => {
-    //       // твой код
-    //         let arr = [];
-    //       users.forEach((user) => {
-    //           user.friends.find(function (elem) {
-    //               if (elem === friendName){
-    //                   arr.push(user.name);
-    //               };
-    //           });
-    //       });
-    //       return arr;
-    // };
-    //
-    // console.log(getUsersWithFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
-    // console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
-
-    // console.warn('Задание 9');
-    // // Массив имен (поле name) людей, отсортированных в зависимости от количества их друзей (поле friends)
-    // const getNamesSortedByFriendsCount = users => {
-    //     // твой код
-    //   let sort = [...users].sort(function(prev, next){
-    //     return prev.friends.length - next.friends.length;
-    //   });
-    //   return sort.map((user) => {return user.name})
-    // };
-    // console.log(getNamesSortedByFriendsCount(users));
-    // // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
-
-    // console.warn('Задание 10');
-    // // Получить массив всех умений всех пользователей (поле skills),
-    // // при этом не должно быть повторяющихся умений и они должны
-    // // быть отсортированы в алфавитном порядке.
-    //   const getSortedUniqueSkills = users => {
-    //
-    // //  Вариант 1
-    // //     return users.reduce((acc, user) => {
-    // //       user.skills.forEach((skill) => {
-    // //         if (!acc.includes(skill)) {
-    // //           acc.push(skill);
-    // //         }
-    // //       });
-    // //       acc.sort();
-    // //       return acc;
-    // //     }, []);
-    //
-    // //  Вариант 2
-    // //   const allSkills = users.reduce(function (userSkills, user){
-    // //     userSkills.push(...user.skills)
-    // //     return userSkills;
-    // //   }, [])
-    // //   const filterSkills = allSkills.filter((elem, index, arr) => arr.indexOf(elem)==index);
-    // //   const sortSkills = filterSkills.sort();
-    // //   return sortSkills;
-    //
-    // //  Вариант 3
-    //   const allSkills = users.reduce(function (userSkills, user){
-    //     userSkills.push(...user.skills)
-    //     return userSkills;
-    //   }, []).filter((elem, index, arr) => arr.indexOf(elem)==index).sort();
-    //     return allSkills;
-    // };
-    // console.log(getSortedUniqueSkills(users));
-    // // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
+// console.warn('Задание 10');
+// // Получить массив всех умений всех пользователей (поле skills),
+// // при этом не должно быть повторяющихся умений и они должны
+// // быть отсортированы в алфавитном порядке.
+//   const getSortedUniqueSkills = users => {
+//
+// //  Вариант 1
+// //     return users.reduce((acc, user) => {
+// //       user.skills.forEach((skill) => {
+// //         if (!acc.includes(skill)) {
+// //           acc.push(skill);
+// //         }
+// //       });
+// //       acc.sort();
+// //       return acc;
+// //     }, []);
+//
+// //  Вариант 2
+// //   const allSkills = users.reduce(function (userSkills, user){
+// //     userSkills.push(...user.skills)
+// //     return userSkills;
+// //   }, [])
+// //   const filterSkills = allSkills.filter((elem, index, arr) => arr.indexOf(elem)==index);
+// //   const sortSkills = filterSkills.sort();
+// //   return sortSkills;
+//
+// //  Вариант 3
+//   const allSkills = users.reduce(function (userSkills, user){
+//     userSkills.push(...user.skills)
+//     return userSkills;
+//   }, []).filter((elem, index, arr) => arr.indexOf(elem)==index).sort();
+//     return allSkills;
+// };
+// console.log(getSortedUniqueSkills(users));
+// // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
 
 console.warn('---------модуль 5------------')
 

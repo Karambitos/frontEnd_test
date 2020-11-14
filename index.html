@@ -6,126 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/all.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <title>Test</title>
 </head>
+
 <body>
-    <div class="main-nav">
-        <div class="side-bar">
-        </div>
-    <header class="header">
-        <div class="header-top">
-            <a href="./index.html" class="logo">
-                <img src="./images/logo.svg" alt="logo" />
-            </a>
-            <button class="menu-button" data-menu-button>
-                <svg width="40" height="40">
-                    <use class="icon-cross" href="./images/project-icons.svg#icon-menu-close"></use>
-                    <use class="icon-burger" href="./images/project-icons.svg#icon-menu-open"></use>
-                </svg>
-            </button>
-            <div class="backdrop">
-                <div class="menu" data-menu>
-                    <nav class="nav">
-                        <ul class="nav-list">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">О нас</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Услуги и цены</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Мастера</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Контакты</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <ul class="contact">
-                        <li class="contact-item">
-                            <a href="tel:+380441111111" class="contact-link">
-                                +38 044 111 11 11
-                            </a>
-                        </li>
-                        <li class="contact-item">
-                            <button type="button" class="button-light is-menu">
-                                онлайн-запись
-                            </button>
-                        </li>
-                    </ul>
-                    <div class="social">
-                        <ul class="social-list-header">
-                            <li class="social-item-header">
-                                <a href="#" class="social-link-header instagram-header">Instagram</a>
-                            </li>
-                            <li class="social-item-header">
-                                <a href="#" class="social-link-header youtube-header">Youtube</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="header-midle">
-            <div class="section-name-cont">
-                <p class="section-name is-header">A hair salon for men in Kyiv</p>
-            </div>
-            <h1 class="section-title is-main">BarberShop</h1>
-            <p class="section-text is-header">
-                Мы эксперты в модных мужских стрижках. Работаем быстро, осторожно и со вкусом.
-            </p>
-        </div>
-    </header>
+    <div>
+        <input id="font-size-control" type="range" />
+        <br />
+        <span id="text">Абракадабра!</span>
     </div>
-    <section class="slider"> -->
-        <!-- <div class="side-bar">
-
-        </div> -->
-<!--         Swiper -->
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="./images/Sliderimg3.png" alt="#"></div>
-              <div class="swiper-slide"><img src="./images/Sliderimg2.png" alt="#"></div>
-              <div class="swiper-slide"><img src="./images/Sliderimg1.png" alt="#"></div>
-            </div>
-<!--             Add Pagination -->
-             <div class="swiper-pagination"></div>
-<!--             Add Arrows -->
-            <div class="swiper-button">
-                <div class="swiper-button-pre"><p>Назад</p></div>
-                <div class="swiper-button-nex"><p>Вперед</p></div>
-            </div>
-          </div>
-    </section>
-    <section class="features container">
-        <div>
-            <p class="features-info">старая традиционная школа</p>
-            <h2 class="features-title">Почему приходят именно к нам?</h2>
-            <p class="features-text">
-                О нас говорят только хорошее. Но лучше 1 раз увидеть и прочувствовать,
-                чем 10 раз прочитать.
-            </p>
-        </div>
-        <div>
-            <ul class="features-list">
-                <li class="features-item"><span class="features-score">600<sup class="features-score-sub">+</sup></span><span class="features-score-text">Довольных клиентов
-                     в день</span></li>
-                <li class="features-item"><span class="features-score">50<sup class="features-score-sub">+</sup></span><span class="features-score-text">Наград за отличный
-                     сервис</span></li>
-                <li class="features-item"><span class="features-score">20<sup class="features-score-sub">+</sup></span><span class="features-score-text">Лучших мастеров
-                     Киева</span></li>
-                <li class="features-item"><span class="features-score">100<sup class="features-score-sub">+</sup></span><span class="features-score-text">Подарков постоянным
-                    клиентам</span></li>
-            </ul>
-        </div>
-    </section>
-
+    <div class="validation-input">
+        <input type="text" id="validation-input" data-length="6" placeholder="Введи 6 символов" />
+    </div>
+    <input type="text" placeholder="Ваше имя?" id="name-input" />
+    <h1>Привет, <span id="name-output">незнакомец</span>!</h1>
+    <div id="counter">
+        <button type="button" data-action="decrement">-1</button>
+        <span id="value">0</span>
+        <button type="button" data-action="increment">+1</button>
+    </div>
+    <div class="gallery-list">
+        <ul id="gallery"></ul>
+    </div>
+    <div class="empty-list">
+        <ul id="ingredients"></ul>
+    </div>
+    <div class="list">
+        <ul id="categories">
+            <li class="item">
+                <h2>Животные</h2>
+                <ul>
+                    <li>Кот</li>
+                    <li>Хомяк</li>
+                    <li>Лошадь</li>
+                    <li>Попугай</li>
+                </ul>
+            </li>
+            <li class="item">
+                <h2>Продукты</h2>
+                <ul>
+                    <li>Хлеб</li>
+                    <li>Петрушка</li>
+                    <li>Творог</li>
+                </ul>
+            </li>
+            <li class="item">
+                <h2>Технологии</h2>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Node</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="./js/script.js" type="module"></script>
     <script src="./js/users.js" type="module"></script>
 </body>
