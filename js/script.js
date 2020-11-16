@@ -1,119 +1,134 @@
-'use strict';
+"use strict";
 
-console.warn('---------модуль 7------------')
+console.warn("---------модуль 7------------");
 
-console.warn('Задание 1');
-const categoriesRef = document.getElementById('categories');
+console.warn("Задание 1");
+const categoriesRef = document.getElementById("categories");
 console.log(`В списке ${categoriesRef.children.length} категории.`);
-const categoriesItemsRef = categoriesRef.querySelectorAll('li.item');
-categoriesItemsRef.forEach(categoriesItem => {
+// const categoriesItemsRef1 = categoriesRef.querySelectorAll("li.item");
+// categoriesItemsRef1.forEach((categoriesItem) => {
+//     console.log(`Категория: ${categoriesItem.firstElementChild.textContent}`);
+//     console.log(
+//         `Количество элементов: ${categoriesItem.lastElementChild.children.length}`
+//     );
+// });
+const categoriesItemsRef = Array.from(categoriesRef.children);
+categoriesItemsRef.forEach((categoriesItem) => {
     console.log(`Категория: ${categoriesItem.firstElementChild.textContent}`);
-    console.log(`Количество элементов: ${categoriesItem.lastElementChild.children.length}`);
+    console.log(
+        `Количество элементов: ${categoriesItem.lastElementChild.children.length}`
+    );
 });
 
-console.warn('Задание 2');
-const ingredientsList = document.getElementById('ingredients');
+console.warn("Задание 2");
+const ingredientsList = document.getElementById("ingredients");
 const ingredients = [
-    'Картошка',
-    'Грибы',
-    'Чеснок',
-    'Помидоры',
-    'Зелень',
-    'Приправы',
-]
-ingredients.map(ingredient => {
-    const ingredientsItem = document.createElement('li');
-    ingredientsItem.textContent = ingredient;
-    ingredientsList.append(ingredientsItem);
-    return ingredientsList;
-});
+    "Картошка",
+    "Грибы",
+    "Чеснок",
+    "Помидоры",
+    "Зелень",
+    "Приправы",
+];
+let createLi = ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("");
+ingredientsList.insertAdjacentHTML("beforeend", createLi);
+// ingredients.map((ingredient) => {
+//     const ingredientsItem = document.createElement("li");
+//     ingredientsItem.textContent = ingredient;
+//     ingredientsList.append(ingredientsItem);
+//     return ingredientsList;
+// });
 
-console.warn('Задание 3');
-import img from './images.js';
-const galleryList = document.getElementById('gallery');
-const galleryItems = img.map(img => {
-    const ingredientsItem = document.createElement('li');
-    ingredientsItem.classList.add('image-style')
-    const ingredientsItemImg = document.createElement('img');
-    ingredientsItemImg.src = img.url;
-    ingredientsItemImg.alt = img.alt;
-    ingredientsItem.append(ingredientsItemImg)
-    galleryList.append(ingredientsItem);
-    return galleryList;
-});
+console.warn("Задание 3");
+// import img from "./images.js";
+// const gallery = document.querySelector("#gallery");
+// let items = img
+//     .map(
+//         (el) =>
+//         `<li class="li-task03"><img src="${el.url}" alt="${el.alt}" class="img-task03"/></li>`
+//     )
+//     .join("");
+// const galInsert = gallery.insertAdjacentHTML("beforeend", items);
 
-console.warn('Задание 4');
+import img from "./images.js";
+const galleryList = document.getElementById("gallery");
+const galleryItems = img.map((img) => `<li class="mage-style">< img src="${img.url}" alt="${img.alt}" ></li>`).join('');
+galleryList.insertAdjacentHTML("beforeend", galleryItems);
+console.log(galleryItems);
+
+
+console.warn("Задание 4");
 // Счетчик состоит из спана и кнопок, которые должны увеличивать и уменьшать значение счетчика на 1.
 // Создай переменную counterValue в которой будет хранится текущее значение счетчика.
 // Создай функции increment и decrement для увеличения и уменьшения значения счетчика
 // Добавь слушатели кликов на кнопки, вызовы функций и обновление интерфейса
-const velueRef = document.getElementById('value');
+const velueRef = document.getElementById("value");
 const decrementBtn = document.querySelector('button[data-action="decrement"]');
 const incrementBtn = document.querySelector('button[data-action="increment"]');
 let counterValue = Number(velueRef.textContent);
 
-decrementBtn.addEventListener('click', decrement);
-incrementBtn.addEventListener('click', increment);
+decrementBtn.addEventListener("click", decrement);
+incrementBtn.addEventListener("click", increment);
 
 function decrement() {
     counterValue -= 1;
     velueRef.textContent = counterValue;
-};
+}
 
 function increment() {
     counterValue += 1;
     velueRef.textContent = counterValue;
-};
-console.warn('Задание 5');
-// Напиши скрипт который, при наборе текста в инпуте input#name-input 
+}
+console.warn("Задание 5");
+// Напиши скрипт который, при наборе текста в инпуте input#name-input
 // (событие input), подставляет его текущее значение в span#name - output.
 // Если инпут пустой, в спане должна отображаться строка 'незнакомец'.
 
-const inputName = document.querySelector('input#name-input');
-let greetingName = document.querySelector('#name-output');
+const inputName = document.querySelector("input#name-input");
+let greetingName = document.querySelector("#name-output");
 
-inputName.addEventListener('input', () => {
+inputName.addEventListener("input", () => {
     if (event.target.value) {
         greetingName.textContent = event.target.value;
     } else {
-        greetingName.textContent = 'незнакомец';
+        greetingName.textContent = "незнакомец";
     }
 });
 
-console.warn('Задание 6');
+console.warn("Задание 6");
 // Напиши скрипт, который бы при потере фокуса на инпуте, проверял его содержимое на правильное количество символов.
 // Сколько символов должно быть в инпуте, указывается в его атрибуте data - length.
 // Если введено подходящее количество, то border инпута становится зеленым, если неправильное - красным.
-const inputLenghtValid = document.querySelector('input#validation-input');
-inputLenghtValid.addEventListener('blur', () => {
+const inputLenghtValid = document.querySelector("input#validation-input");
+inputLenghtValid.addEventListener("blur", () => {
     const target = event.target;
-    if (Number(target.dataset.length) === (target.value.length)) {
-        target.classList.add('valid');
-        target.classList.remove('invalid');
+    if (Number(target.dataset.length) === target.value.length) {
+        target.classList.add("valid");
+        target.classList.remove("invalid");
     } else {
-        target.classList.add('invalid');
-        target.classList.remove('valid');
+        target.classList.add("invalid");
+        target.classList.remove("valid");
     }
 });
 
-console.warn('Задание 7');
-// Напиши скрипт, который реагирует на изменение значения 
+console.warn("Задание 7");
+// Напиши скрипт, который реагирует на изменение значения
 // input#font - size - control(событие input) и изменяет инлайн - стиль
 // span#text обновляя свойство font - size.В результате при перетаскивании
 // ползунка будет меняться размер текста.
+const inputRange = document.querySelector('input#font-size-control');
+const textRef = document.querySelector('#text');
 
 /*
  *   jQuery
  */
-$("#font-size-control").on("input", function () {
-    $('#text').css("font-size", $(this).val() + "px");
-});
+// $("#font-size-control").on("input", function () {
+//     $('#text').css("font-size", $(this).val() + "px");
+// });
 
 /*
  *   JS
  */
-// const inputRange = document.querySelector('input#font-size-control');
-// const textRef = document.querySelector('#text');
 // inputRange.addEventListener('input', () => {
 //     let target = event.target.value;
 //     textRef.style.fontSize = target + "px";
@@ -122,37 +137,36 @@ $("#font-size-control").on("input", function () {
 /*
  *   JS задротство
  */
-// textRef.style.fontSize = '16px';
-// function fontCalc(bool) {
-//     if (bool) {
-//         const newFont = (parseInt(textRef.style.fontSize) + 1) + 'px'
-//         textRef.style.fontSize = newFont;
-//     } else {
-//         const newFont = (parseInt(textRef.style.fontSize) - 1) + 'px'
-//         textRef.style.fontSize = newFont;
-//     }
-// }
-// let defaultInputValue = inputRange.value;
-// inputRange.addEventListener('input', () => {
-//     let target = event.target.value;
-//     if (defaultInputValue < target) {
-//         defaultInputValue = target;
-//         console.log('defaultInputValue', defaultInputValue);
-//         console.log('target', target);
-//         fontCalc(true)
-//     } else {
-//         console.log('defaultInputValue', defaultInputValue);
-//         console.log('target', target);
-//         fontCalc(false)
-//     }
-// });
+textRef.style.fontSize = "16px";
 
-console.warn('Задание 7');
+function fontCalc(bool) {
+    if (bool) {
+        const newFont = parseInt(textRef.style.fontSize) + 1 + "px";
+        textRef.style.fontSize = newFont;
+    } else {
+        const newFont = parseInt(textRef.style.fontSize) - 1 + "px";
+        textRef.style.fontSize = newFont;
+    }
+}
 
+let defaultInputValue = inputRange.value;
+inputRange.addEventListener("input", () => {
+    let target = event.target.value;
+    if (defaultInputValue < target) {
+        defaultInputValue = target;
+        console.log("defaultInputValue", defaultInputValue);
+        console.log("target", target);
+        fontCalc(true);
+    } else {
+        console.log("defaultInputValue", defaultInputValue);
+        console.log("target", target);
+        fontCalc(false);
+    }
+});
 
+console.warn("Задание 7");
 
-
-console.warn('---------модуль 6------------')
+console.warn("---------модуль 6------------");
 // import users from './users.js';
 // console.warn('Задание 1');
 // const getUserNames = users => {
@@ -307,7 +321,7 @@ console.warn('---------модуль 6------------')
 // console.log(getSortedUniqueSkills(users));
 // // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
 
-console.warn('---------модуль 5------------')
+console.warn("---------модуль 5------------");
 
 // {
 //   console.warn('Задание 1')
@@ -602,8 +616,7 @@ console.warn('---------модуль 5------------')
 //
 // }
 
-
-console.warn('---------модуль 4------------')
+console.warn("---------модуль 4------------");
 
 // {
 //   console.warn('Задание 1')
@@ -665,7 +678,7 @@ console.warn('---------модуль 4------------')
 //
 // }
 
-console.warn('---------модуль 3------------')
+console.warn("---------модуль 3------------");
 
 // {
 //   console.warn('Задание 1')
@@ -1015,7 +1028,7 @@ console.warn('---------модуль 3------------')
 //   console.log(account.getTransactionDetails(6));
 // }
 
-console.warn('---------модуль 2------------')
+console.warn("---------модуль 2------------");
 
 // {
 //     console.warn('Задание 1')
@@ -1193,8 +1206,7 @@ console.warn('---------модуль 2------------')
 //   console.log(addLogin(logins, 'jqueryisextremelyfast')); // 'Ошибка! Логин должен быть от 4 до 16 символов'
 // }
 
-
-console.warn('---------модуль 1------------')
+console.warn("---------модуль 1------------");
 
 // {
 //     console.warn('Задание 1')
