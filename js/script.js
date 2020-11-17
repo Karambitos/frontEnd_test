@@ -14,23 +14,25 @@ console.log(`В списке ${categoriesRef.children.length} категории
 // });
 const categoriesItemsRef = Array.from(categoriesRef.children);
 categoriesItemsRef.forEach((categoriesItem) => {
-    console.log(`Категория: ${categoriesItem.firstElementChild.textContent}`);
-    console.log(
-        `Количество элементов: ${categoriesItem.lastElementChild.children.length}`
-    );
+  console.log(`Категория: ${categoriesItem.firstElementChild.textContent}`);
+  console.log(
+    `Количество элементов: ${categoriesItem.lastElementChild.children.length}`
+  );
 });
 
 console.warn("Задание 2");
 const ingredientsList = document.getElementById("ingredients");
 const ingredients = [
-    "Картошка",
-    "Грибы",
-    "Чеснок",
-    "Помидоры",
-    "Зелень",
-    "Приправы",
+  "Картошка",
+  "Грибы",
+  "Чеснок",
+  "Помидоры",
+  "Зелень",
+  "Приправы",
 ];
-let createLi = ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("");
+let createLi = ingredients
+  .map((ingredient) => `<li>${ingredient}</li>`)
+  .join("");
 ingredientsList.insertAdjacentHTML("beforeend", createLi);
 // ingredients.map((ingredient) => {
 //     const ingredientsItem = document.createElement("li");
@@ -52,10 +54,13 @@ console.warn("Задание 3");
 
 import img from "./images.js";
 const galleryList = document.getElementById("gallery");
-const galleryItems = img.map((img) => `<li class="mage-style">< img src="${img.url}" alt="${img.alt}" ></li>`).join('');
+const galleryItems = img
+  .map(
+    (img) =>
+      `<li class="image-style"><img src="${img.url}" alt="${img.alt}" ></li>`
+  )
+  .join("");
 galleryList.insertAdjacentHTML("beforeend", galleryItems);
-console.log(galleryItems);
-
 
 console.warn("Задание 4");
 // Счетчик состоит из спана и кнопок, которые должны увеличивать и уменьшать значение счетчика на 1.
@@ -66,18 +71,16 @@ const velueRef = document.getElementById("value");
 const decrementBtn = document.querySelector('button[data-action="decrement"]');
 const incrementBtn = document.querySelector('button[data-action="increment"]');
 let counterValue = Number(velueRef.textContent);
-
 decrementBtn.addEventListener("click", decrement);
 incrementBtn.addEventListener("click", increment);
-
 function decrement() {
-    counterValue -= 1;
-    velueRef.textContent = counterValue;
+  counterValue -= 1;
+  velueRef.textContent = counterValue;
 }
 
 function increment() {
-    counterValue += 1;
-    velueRef.textContent = counterValue;
+  counterValue += 1;
+  velueRef.textContent = counterValue;
 }
 console.warn("Задание 5");
 // Напиши скрипт который, при наборе текста в инпуте input#name-input
@@ -88,11 +91,11 @@ const inputName = document.querySelector("input#name-input");
 let greetingName = document.querySelector("#name-output");
 
 inputName.addEventListener("input", () => {
-    if (event.target.value) {
-        greetingName.textContent = event.target.value;
-    } else {
-        greetingName.textContent = "незнакомец";
-    }
+  if (event.target.value) {
+    greetingName.textContent = event.target.value;
+  } else {
+    greetingName.textContent = "незнакомец";
+  }
 });
 
 console.warn("Задание 6");
@@ -101,14 +104,14 @@ console.warn("Задание 6");
 // Если введено подходящее количество, то border инпута становится зеленым, если неправильное - красным.
 const inputLenghtValid = document.querySelector("input#validation-input");
 inputLenghtValid.addEventListener("blur", () => {
-    const target = event.target;
-    if (Number(target.dataset.length) === target.value.length) {
-        target.classList.add("valid");
-        target.classList.remove("invalid");
-    } else {
-        target.classList.add("invalid");
-        target.classList.remove("valid");
-    }
+  const target = event.target;
+  if (Number(target.dataset.length) === target.value.length) {
+    target.classList.add("valid");
+    target.classList.remove("invalid");
+  } else {
+    target.classList.add("invalid");
+    target.classList.remove("valid");
+  }
 });
 
 console.warn("Задание 7");
@@ -116,8 +119,8 @@ console.warn("Задание 7");
 // input#font - size - control(событие input) и изменяет инлайн - стиль
 // span#text обновляя свойство font - size.В результате при перетаскивании
 // ползунка будет меняться размер текста.
-const inputRange = document.querySelector('input#font-size-control');
-const textRef = document.querySelector('#text');
+const inputRange = document.querySelector("input#font-size-control");
+const textRef = document.querySelector("#text");
 
 /*
  *   jQuery
@@ -140,31 +143,66 @@ const textRef = document.querySelector('#text');
 textRef.style.fontSize = "16px";
 
 function fontCalc(bool) {
-    if (bool) {
-        const newFont = parseInt(textRef.style.fontSize) + 1 + "px";
-        textRef.style.fontSize = newFont;
-    } else {
-        const newFont = parseInt(textRef.style.fontSize) - 1 + "px";
-        textRef.style.fontSize = newFont;
-    }
+  if (bool) {
+    const newFont = parseInt(textRef.style.fontSize) + 1 + "px";
+    textRef.style.fontSize = newFont;
+  } else {
+    const newFont = parseInt(textRef.style.fontSize) - 1 + "px";
+    textRef.style.fontSize = newFont;
+  }
 }
 
 let defaultInputValue = inputRange.value;
 inputRange.addEventListener("input", () => {
-    let target = event.target.value;
-    if (defaultInputValue < target) {
-        defaultInputValue = target;
-        console.log("defaultInputValue", defaultInputValue);
-        console.log("target", target);
-        fontCalc(true);
-    } else {
-        console.log("defaultInputValue", defaultInputValue);
-        console.log("target", target);
-        fontCalc(false);
-    }
+  let target = event.target.value;
+  if (defaultInputValue < target) {
+    defaultInputValue = target;
+    console.log("defaultInputValue", defaultInputValue);
+    console.log("target", target);
+    fontCalc(true);
+  } else {
+    console.log("defaultInputValue", defaultInputValue);
+    console.log("target", target);
+    fontCalc(false);
+  }
 });
 
-console.warn("Задание 7");
+console.warn("Задание 8");
+const boxes = document.getElementById("boxes");
+const squareNum = document.querySelector("#controls > input");
+const addSquareBtn = document.querySelector('button[data-action="render"]');
+const removeSquareBtn = document.querySelector('button[data-action="destroy"]');
+
+console.log(squareNum.value);
+
+let styleBox = 30;
+
+function createBoxes(amount) {
+  for (var i = 0; i < amount; i++) {
+    let RGB1 = Math.floor(Math.random() * 255);
+    let RGB2 = Math.floor(Math.random() * 255);
+    let RGB3 = Math.floor(Math.random() * 255);
+    let RGB = RGB1 + "," + RGB2 + "," + RGB3;
+    let square = document.createElement("div");
+    square.style.background = "rgb(" + RGB + ")";
+    square.style.width = styleBox + "px";
+    square.style.height = styleBox + "px";
+    boxes.append(square);
+    styleBox += 10;
+  }
+}
+
+function destroyBoxes() {
+  while (boxes.firstChild) boxes.removeChild(boxes.firstChild);
+}
+
+removeSquareBtn.addEventListener("click", () => {
+  destroyBoxes();
+});
+
+addSquareBtn.addEventListener("click", () => {
+  createBoxes(squareNum.value);
+});
 
 console.warn("---------модуль 6------------");
 // import users from './users.js';

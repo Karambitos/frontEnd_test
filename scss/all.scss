@@ -35,3 +35,21 @@ img {
 #validation-input.invalid {
   border-color: #f44336;
 }
+
+#controls {
+  margin: 40px 0;
+}
+
+#boxes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#boxes>div {
+  margin: 10px;
+  // min-width: 30px;
+  // min-height: 30px;
+  display: inline-block;
+}

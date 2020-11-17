@@ -38,4 +38,27 @@ img {
 #validation-input.invalid {
   border-color: #f44336;
 }
+
+#controls {
+  margin: 40px 0;
+}
+
+#boxes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+#boxes > div {
+  margin: 10px;
+  display: inline-block;
+}
 /*# sourceMappingURL=all.css.map */
